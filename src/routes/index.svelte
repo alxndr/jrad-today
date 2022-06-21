@@ -3,15 +3,10 @@
 		const response = await fetch('https://github.com/alxndr/almost-dead-net/raw/main/src/data/csv/shows.csv')
 		if (response.status === 200) {
 			const csvString = await response.text()
-			const today = new Date()
-			const todayM = today.getMonth() + 1
-			const todayD = today.getDate()
-			const todayMD = `${todayM}/${todayD}`
 			return {
 				status: 200,
 				props: {
 					csvString,
-					todayMD,
 				},
 			}
 		}
@@ -23,7 +18,11 @@
 
 <script>
 	import Papa from 'papaparse'
-	const {csvString = '', todayMD = '…'} = arguments?.[1] // TODO this doesn't feel like the Right way to do it...
+  function dateToMD(date) {
+    if (!date.getMonth || !date.getDate) throw new Error('Unexpected date param', date)
+    return `${date.getMonth() + 1}/${date.getDate()}`
+  }
+	const {csvString = ''} = arguments?.[1] // TODO this doesn't feel like the Right way to do it...
 	let allShows = []
 	Papa.parse(csvString, {
 		header: true,
@@ -31,9 +30,25 @@
 			allShows = results.data
 		}
 	})
+  function showsOnDate(dateMD) {
+    return show => dateMD === show?.date?.split('/').slice(0,2).join('/')
+  }
+  const todayMD = dateToMD(new Date())
+  let mutatingDate = new Date()
+  mutatingDate.setDate(mutatingDate.getDate() - 1)
+  const yesterdayMD = dateToMD(mutatingDate)
+  mutatingDate = new Date()
+  mutatingDate.setDate(mutatingDate.getDate() + 1)
+  const tomorrowMD = dateToMD(mutatingDate)
 	let anniversaryShows = []
+  let yesterdayShows = []
+  let tomorrowShows = []
 	$: {
-		anniversaryShows = allShows.filter(show => todayMD === show?.date?.split('/').slice(0,2).join('/'))
+		anniversaryShows = allShows.filter(showsOnDate(todayMD))
+    yesterdayShows = !anniversaryShows.length &&
+      allShows.filter(showsOnDate(yesterdayMD))
+    tomorrowShows = !anniversaryShows.length &&
+      allShows.filter(showsOnDate(tomorrowMD))
 	}
 </script>
 
@@ -47,6 +62,22 @@
 	</ul>
 {:else}
 	<p>No shows played on this date... yet!</p>
+  {#if yesterdayShows.length}
+    <p>Yesterday's anniversary:</p>
+    <ul>
+      {#each yesterdayShows as show}
+        <li><a href={`https://almost-dead.net/show/${show.id}`}>{show.tagline}</a></li>
+      {/each}
+    </ul>
+  {/if}
+  {#if tomorrowShows.length}
+    <p>Tomorrow's anniversary:</p>
+    <ul>
+      {#each tomorrowShows as show}
+        <li><a href={`https://almost-dead.net/show/${show.id}`}>{show.tagline}</a></li>
+      {/each}
+    </ul>
+  {/if}
 {/if}
 
 <style>
