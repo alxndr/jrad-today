@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"build:deploy": "npm run build && npm run deploy",
-		"deploy": "gh-pages --message \"deploy @ $(date +'%FT%T%z')\" --dest docs --dist docs",
+		"deploy": "gh-pages --dotfiles --message \"deploy @ $(date +'%FT%T%z')\" --dest docs --dist docs",
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",

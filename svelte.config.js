@@ -1,4 +1,4 @@
-import adapterStatic from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -7,12 +7,12 @@ const config = {
 	// for more information about preprocessors
 	preprocess: preprocess(),
 	kit: {
-		adapter: adapterStatic({
-      pages: 'docs',
-      assets: 'docs',
-    }),
+		adapter: adapter(),
     paths: {
       base: '/jrad-today',
+    },
+    prerender: {
+      default: true,
     },
 		vite: {
 			optimizeDeps: {
