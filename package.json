@@ -1,7 +1,7 @@
 {
   "name": "jrad-today",
   "scripts": {
-    "deploy": "gh-pages --dist public --message \"deploy $(date +'%FT%T%z')\"",
+    "deploy": "gh-pages --dist dist --message \"deploy $(date +'%FT%T%z')\"",
     "postinstall": "elm-tooling install",
     "start": "elm-pages dev",
     "build": "elm-pages build"
