@@ -1,6 +1,9 @@
 {
   "name": "jrad-today",
+  "homepage": "http://jrad.today",
+  "repository": "https://github.com/alxndr/jrad-today",
   "scripts": {
+    "predeploy": "cp static/* dist",
     "deploy": "gh-pages --dist dist --message \"deploy $(date +'%FT%T%z')\"",
     "postinstall": "elm-tooling install",
     "start": "elm-pages dev",

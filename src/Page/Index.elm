@@ -1,27 +1,20 @@
 module Page.Index exposing (Data, Model, Msg, page)
-
 import DataSource exposing (DataSource)
+import Http
 import Head
 import Head.Seo as Seo
+import Html exposing (text)
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
 import Shared
 import View exposing (View)
 
+type alias Model = ()
+type alias Msg = Never -- no interaction with the user once rendered
+type alias RouteParams = {}
 
-type alias Model =
-    ()
-
-
-type alias Msg =
-    Never
-
-
-type alias RouteParams =
-    {}
-
-
+-- "Page Modules are Elm modules in the src/Page folder that define a top-level page" https://elm-pages.com/docs/page-modules
 page : Page RouteParams Data
 page =
     Page.single
@@ -30,10 +23,8 @@ page =
         }
         |> Page.buildNoState { view = view }
 
-
 data : DataSource Data
-data =
-    DataSource.succeed ()
+data = DataSource.succeed ()
 
 
 head :
@@ -44,20 +35,18 @@ head static =
         { canonicalUrlOverride = Nothing
         , siteName = "elm-pages"
         , image =
-            { url = Pages.Url.external "TODO"
-            , alt = "elm-pages logo"
+            { url = Pages.Url.external "https://i.imgur.com/7dpZxu1.png"
+            , alt = "JRAD.today"
             , dimensions = Nothing
             , mimeType = Nothing
             }
-        , description = "TODO"
+        , description = "links to the concerts that Joe Russo's Almost Dead played on this date"
+        , title = "Today in JRAD History"
         , locale = Nothing
-        , title = "TODO title" -- metadata.title -- TODO
         }
         |> Seo.website
 
-
-type alias Data =
-    ()
+type alias Data = ()
 
 
 view :
@@ -66,4 +55,4 @@ view :
     -> StaticPayload Data RouteParams
     -> View Msg
 view maybeUrl sharedModel static =
-    View.placeholder "Index"
+    View.placeholder "#TIJRADH"
