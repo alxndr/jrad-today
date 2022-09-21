@@ -1,21 +1,25 @@
 {
-  "name": "my-qwik-basic-starter",
-  "description": "Recommended for your first Qwik app",
+  "name": "jrad-today",
+  "description": "Code which powers the JRAD fan portal https://JRAD.today",
   "engines": {
-    "node": ">=15.0.0"
+    "node": ">=16.0.0"
   },
   "private": true,
   "scripts": {
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.static": "vite build --ssr src/entry.static.tsx",
     "build.types": "tsc --incremental --noEmit",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
+    "postpublish": "echo Done publishing — $(date)",
     "preview": "qwik build preview && vite preview --open",
+    "publish": "export TAG=deploy-$(date '+%F-%H%M%S-%Z') && cp -r static/* dist/ && npm run build.static && npm run ssg && gh-pages --dist dist --dotfiles --branch gh-pages --tag $TAG --message \"Deploy $TAG\"",
+    "ssg": "node server/entry.static",
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },
@@ -28,6 +32,7 @@
     "@typescript-eslint/parser": "5.37.0",
     "eslint": "8.23.1",
     "eslint-plugin-qwik": "0.9.0",
+    "gh-pages": "^4.0.0",
     "node-fetch": "3.2.10",
     "prettier": "2.7.1",
     "typescript": "4.8.3",
