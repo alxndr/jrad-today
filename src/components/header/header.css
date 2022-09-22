@@ -1,0 +1,12 @@
+header {
+  display: flex;
+  background: #222222ee;
+  align-items: center;
+  justify-content: center;
+}
+
+header tt {
+  font-size: 2em;
+  color: dimgray;
+  line-height: 1.5em;
+}

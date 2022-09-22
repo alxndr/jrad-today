@@ -1,0 +1,83 @@
+/**
+ * WHAT IS THIS FILE?
+ *
+ * Globally applied styles. No matter which components are in the page or matching route,
+ * the styles in here will be applied to the Document, without any sort of CSS scoping.
+ *
+ */
+
+body {
+  background-color: #fafafa;
+  font-family: 'Helvetica', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 20px 20px 40px;
+}
+
+main {
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+h1,
+h2 {
+  margin: 0 0 5px 0;
+}
+
+.lightning {
+  filter: hue-rotate(180deg);
+}
+
+section {
+  padding: 20px;
+}
+
+ul {
+  list-style-type: square;
+  margin: 5px 0 30px 0;
+  padding-left: 25px;
+}
+
+li {
+  padding: 5px 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+table.commands {
+  margin: 0 0 30px 0;
+}
+
+.commands td {
+  padding: 5px;
+}
+
+.commands td:first-child {
+  white-space: nowrap;
+  padding-right: 20px;
+}
+
+code {
+  font-family: Menlo, Monaco, Courier New, monospace;
+  font-size: 0.9em;
+  background-color: rgb(224, 224, 224);
+  padding: 2px 4px;
+  border-radius: 3px;
+  border-bottom: 2px solid #bfbfbf;
+}
+
+footer {
+  padding: 15px;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
