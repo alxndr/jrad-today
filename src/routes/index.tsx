@@ -30,14 +30,18 @@ type InputType = {value: string} | any
 
 export default component$(() => {
   useStylesScoped$(styles);
-  const nowDateObj = new Date()
+  const nowDateObj = new Date();
+  const year = nowDateObj.getFullYear()
+  const month = nowDateObj.getMonth() + 1 // don't forget the plus-one
+  const day = nowDateObj.getDate()
+  const today = `${month}/${day}/${year}`
   const store = useStore<any>({
     concertData: null,
+    concertsOnDate: null,
     day: nowDateObj.getDate(),
     isJsRunning: false,
     month: nowDateObj.getMonth() + 1,
     recordingsData: null,
-    todaysConcerts: null,
   })
   useClientEffect$(async () => {
     store.isJsRunning = true
@@ -54,12 +58,11 @@ export default component$(() => {
   useWatch$(async ({track}) => {
     const concertData = track(store, 'concertData')
     const recordingsData = track(store, 'recordingsData')
-    // if (!recordingsData || !concertData) return; // this watch callback should re-run once concertData
     const day = track(store, 'day')
     const month = track(store, 'month')
     const dateWithoutYear = `${month}/${day}/`
-    store.todaysConcerts = concertData
-      ?.filter?.((concert: {date: string, set1: string}) => concert?.date?.startsWith(dateWithoutYear) && concert.set1) // filtering on set1 means we don't see shows which have not yet occurred... https://github.com/alxndr/jrad-today/issues/1
+    store.concertsOnDate = concertData
+      ?.filter?.((concert: {date: string, set1: string}) => concert?.date?.startsWith(dateWithoutYear))
       ?.sort((a: {id: string}, b: {id: string}) => Number(a.id) - Number(b.id))
       ?.map((concert: {id: string}) => ({
         ...concert,
@@ -77,10 +80,10 @@ export default component$(() => {
         {tWord} {' '}
         in <a href="http://www.joerussosalmostdead.com" target="_blank">JRAD</a> History: {monthNumToWord(store.month)} {store.day}
       </h1>
-      {store.todaysConcerts
-        ? store.todaysConcerts?.length
-          ? store.todaysConcerts.map?.((concert: any) =>
-              <ConcertInfo data={mutable(concert)} />
+      {store.concertsOnDate
+        ? store.concertsOnDate?.length
+          ? store.concertsOnDate.map?.((concert: any) =>
+              <ConcertInfo data={mutable(concert)} today={today} />
             )
           : <>
               <hr />

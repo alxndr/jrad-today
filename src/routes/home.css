@@ -14,11 +14,6 @@ h1 a {
   text-decoration: none;
 }
 
-p {
-  width: 100%;
-  text-align: center;
-}
-
 .component-datepicker {
   margin: 0;
   padding: 0;
