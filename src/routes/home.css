@@ -1,6 +1,18 @@
+.page-home {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 h1 {
-  font-family: fantasy;
+  width: 100%;
+  font-size: 1.7em;
+  text-align: center;
 }
 h1 a {
   text-decoration: none;
+}
+
+p {
+  width: 100%;
 }
