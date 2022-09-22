@@ -20,13 +20,20 @@ main {
   box-shadow: 0 2px 4px 1px #000000bb;
 }
 
-h1,
+h1 {
+  margin: 0 0 1em 0;
+}
 h2 {
-  margin: 0 0 5px 0;
+  margin: 0 0 0.2em 0;
 }
 
 section {
   padding: 20px;
+}
+
+hr {
+  margin: 1.5em;
+  width: 50%;
 }
 
 li {

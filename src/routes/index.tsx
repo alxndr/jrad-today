@@ -83,7 +83,8 @@ export default component$(() => {
               <ConcertInfo data={mutable(concert)} />
             )
           : <>
-              <p>Aw, nothing played on this day yet...</p>
+              <hr />
+              <p>{monthNumToWord(store.month)} {store.day} has always been a day off for JRAD...</p>
             </>
         : <p>Loading...</p>
       }
