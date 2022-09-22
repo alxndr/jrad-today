@@ -7,9 +7,9 @@
  */
 
 body {
-  background-color: #fafafa;
+  background-color: #eee;
   font-family: 'Helvetica', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  padding: 20px 20px 40px;
+  padding: 10px 10px 40px;
 }
 
 main {
@@ -17,6 +17,7 @@ main {
   background-color: white;
   border-radius: 5px;
   overflow: hidden;
+  box-shadow: 0 2px 4px 1px #000000bb;
 }
 
 h1,
