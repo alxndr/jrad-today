@@ -26,6 +26,8 @@ export function monthNumToWord(monthNum: number) {
   }
 }
 
+type InputType = {value: string} | any
+
 export default component$(() => {
   useStylesScoped$(styles);
   const nowDateObj = new Date()
@@ -52,7 +54,7 @@ export default component$(() => {
   useWatch$(async ({track}) => {
     const concertData = track(store, 'concertData')
     const recordingsData = track(store, 'recordingsData')
-    if (!recordingsData || !concertData) return;
+    // if (!recordingsData || !concertData) return; // this watch callback should re-run once concertData
     const day = track(store, 'day')
     const month = track(store, 'month')
     const dateWithoutYear = `${month}/${day}/`
@@ -81,19 +83,40 @@ export default component$(() => {
               <ConcertInfo data={mutable(concert)} />
             )
           : <>
-              <p>Aw, nothing played on this date yet...</p>
+              <p>Aw, nothing played on this day yet...</p>
             </>
         : <p>Loading...</p>
       }
       {store.isJsRunning && <p>
-        Try another date?
-        <input name="month" placeholder="month" type="number" min="1" max="12" value={store.month} onClick$={(_event, element: {value: string}) => {
-          store.month = Number(element.value)
-        }} />
-        /
-        <input name="day" placeholder="day" type="number" min="1" max="31" value={store.day} onClick$={(_event, element: {value: string}) => {
-          store.day = Number(element.value)
-        }} />
+        Try another day?
+        <ul class="component-datepicker">
+          <li class="component-datepicker--month">
+            <input
+              name="month"
+              placeholder="month"
+              type="number"
+              min="1"
+              max="12"
+              value={store.month}
+              onInput$={(_event, {value}: InputType) => {
+                store.month = Number(value)
+              }}
+            />
+          </li>
+          <li class="component-datepicker--day">
+            <input
+              name="day"
+              placeholder="day"
+              type="number"
+              min="1"
+              max="31"
+              value={store.day}
+              onInput$={(_event, {value}: InputType) => {
+                store.day = Number(value)
+              }}
+            />
+          </li>
+        </ul>
       </p>}
     </div>
   );

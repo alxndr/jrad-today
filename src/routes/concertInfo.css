@@ -9,15 +9,16 @@
   background: aliceblue;
 }
 
+.component-concertInfo h2 {
+  font-size: 1.3em;
+  text-align: center;
+}
+
 .component-concertInfo a {
   text-decoration: none;
 }
 .component-concertInfo a:hover {
   text-decoration: underline;
-}
-
-.component-concertInfo > a {
-  text-align: center;
 }
 
 .component-concertInfo .component-concertInfo--recordings {
