@@ -22,7 +22,7 @@ export default component$(({data: {id, recordings, tagline}}: any) => {
       {tagline}
     </a>
     {recordings?.length && <ul class="component-concertInfo--recordings">{recordings.map?.((recording: {type: string, url: string}) =>
-      <li><a href={recording.url}>{recordingTypeAbbrev(recording.type)}</a></li>
+      <li><a href={recording.url} target="_blank">{recordingTypeAbbrev(recording.type)}</a></li>
     )}</ul> || false}
     <button onClick$={() => store.showSetlist = !store.showSetlist}>{store.showSetlist ? 'hide' : 'show'} setlist</button>
     {store.showSetlist
