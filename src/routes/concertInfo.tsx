@@ -23,7 +23,7 @@ export default component$(({data: {id, recordings, tagline}}: any) => {
     </a>
     {recordings?.length && <ul class="component-concertInfo--recordings">{recordings.map?.((recording: {type: string, url: string}) =>
       <li><a href={recording.url}>{recordingTypeAbbrev(recording.type)}</a></li>
-    )}</ul>}
+    )}</ul> || false}
     <button onClick$={() => store.showSetlist = !store.showSetlist}>{store.showSetlist ? 'hide' : 'show'} setlist</button>
     {store.showSetlist
       ? <iframe src={setlistUrl}></iframe>
