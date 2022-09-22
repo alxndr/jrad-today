@@ -5,6 +5,9 @@ import ppp from 'papaparse'
 import styles from './home.css?inline'
 import ConcertInfo from './concertInfo'
 
+import showsCsv from '../data/shows.csv?raw'
+import recordingsCsv from '../data/recordings.csv?raw'
+
 export function monthNumToWord(monthNum: number) {
   switch (monthNum) {
     case 1: return 'January';
@@ -36,23 +39,24 @@ export default component$(() => {
   })
   useClientEffect$(async () => {
     store.isJsRunning = true
-    ppp.parse('https://github.com/alxndr/almost-dead-net/raw/main/src/data/csv/shows.csv',
-      {header: true, download: true, worker: false, complete: (results: {data: any}) => {
+    ppp.parse(showsCsv,
+      {header: true, worker: false, complete: (results: {data: any}) => {
         store.concertData = results?.data
-        ppp.parse('https://github.com/alxndr/almost-dead-net/raw/main/src/data/csv/recordings.csv',
-          {header: true, download: true, worker: false, complete: (results: {data: any}) => {
+        ppp.parse(recordingsCsv,
+          {header: true, worker: false, complete: (results: {data: any}) => {
             store.recordingsData = results?.data
           }}
         )
     }})
   })
   useWatch$(async ({track}) => {
+    const concertData = track(store, 'concertData')
     const recordingsData = track(store, 'recordingsData')
-    if (!recordingsData) return;
+    if (!recordingsData || !concertData) return;
     const day = track(store, 'day')
     const month = track(store, 'month')
     const dateWithoutYear = `${month}/${day}/`
-    store.todaysConcerts = store.concertData
+    store.todaysConcerts = concertData
       ?.filter?.((concert: {date: string, set1: string}) => concert?.date?.startsWith(dateWithoutYear) && concert.set1) // filtering on set1 means we don't see shows which have not yet occurred... https://github.com/alxndr/jrad-today/issues/1
       ?.sort((a: {id: string}, b: {id: string}) => Number(a.id) - Number(b.id))
       ?.map((concert: {id: string}) => ({
