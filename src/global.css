@@ -66,8 +66,8 @@ footer li > a {
 
 a.icon {
   background: 0/contain no-repeat;
-  padding-left: 1.1em;
 }
 a.icon.github {
   background-image: url(https://i.imgur.com/8Sp9Ndd.png);
+  padding-left: 2.3em;
 }
