@@ -10,9 +10,10 @@ export default component$(() => {
       </section>
     </main>
     <footer>
-      brought to you by
-      {' '}
-      <a href="https://almost-dead.net" target="_blank">Almost-Dead.net</a>
+      <ul>
+        <li><a href="http://www.joerussosalmostdead.com" target="_blank">not officially associated with Joe Russo's Almost Dead</a></li>
+        <li><a href="https://almost-dead.net" target="_blank">brought to you by Almost-Dead.net</a></li>
+      </ul>
     </footer>
   </>;
 });

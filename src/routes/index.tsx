@@ -75,19 +75,15 @@ export default component$(() => {
         {tWord} {' '}
         in <a href="http://www.joerussosalmostdead.com" target="_blank">JRAD</a> History: {monthNumToWord(store.month)} {store.day}
       </h1>
-      {store.isJsRunning
-        ? store.todaysConcerts
-          ? store.todaysConcerts?.length
-            ? store.todaysConcerts.map?.((concert: any) =>
-                <ConcertInfo data={mutable(concert)} />
-              )
-            : <>
-                <p>Aw, nothing played on this date yet...</p>
-              </>
-          : <p>Loading...</p>
-        : <noscript>
-            <p>Get info about a past JRAD concert performed on this day, once you enable JavaScript!</p>
-          </noscript>
+      {store.todaysConcerts
+        ? store.todaysConcerts?.length
+          ? store.todaysConcerts.map?.((concert: any) =>
+              <ConcertInfo data={mutable(concert)} />
+            )
+          : <>
+              <p>Aw, nothing played on this date yet...</p>
+            </>
+        : <p>Loading...</p>
       }
       {store.isJsRunning && <p>
         Try another date?
@@ -99,7 +95,6 @@ export default component$(() => {
           store.day = Number(element.value)
         }} />
       </p>}
-      <p>Chat about all things JRAD at <a href="https://lot.almost-dead.net/" target="_blank">The Lot</a>!</p>
     </div>
   );
 });
