@@ -1,6 +1,6 @@
 # [JRAD.today]
 
-This is the code behind the [Joe Russo's Almost Dead][JRAD] fan site `[JRAD.today]`.
+This is the code behind the [Joe Russo's Almost Dead][JRAD] fan site [JRAD.today].
 
 It is powered by [Qwik] and [GitHub Pages].
 
