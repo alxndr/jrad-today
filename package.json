@@ -21,9 +21,9 @@
     "postdeploy.prod": "echo Publish finishing @ $(date '+%F-%T-%Z') — started at $TIMESTAMP",
     "predeploy.prod": "export TIMESTAMP=$(date '+%F-%T-%Z') && echo Publish starting @ $TIMESTAMP",
     "preview": "qwik build preview && vite preview --open",
+    "qwik": "qwik",
     "ssg": "node server/entry.static",
-    "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "start": "vite --open --mode ssr"
   },
   "devDependencies": {
     "@builder.io/qwik": "0.9.0",
