@@ -37,6 +37,3 @@ h1 a {
   font-size: 1.2em;
   line-height: 2em;
 }
-.component-datepicker--month input {
-  direction: rtl; /* this might be a bad idea */
-}

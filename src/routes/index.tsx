@@ -99,11 +99,14 @@ export default component$(() => {
               name="month"
               placeholder="month"
               type="number"
+              inputmode="decimal"
               min="1"
               max="12"
               value={store.month}
               onInput$={(_event, {value}: InputType) => {
-                store.month = Number(value)
+                const num = Number(value)
+                if (num >= 1 && num <= 12)
+                  store.month = num
               }}
             />
           </li>
@@ -112,11 +115,14 @@ export default component$(() => {
               name="day"
               placeholder="day"
               type="number"
+              inputmode="decimal"
               min="1"
               max="31"
               value={store.day}
               onInput$={(_event, {value}: InputType) => {
-                store.day = Number(value)
+                const num = Number(value)
+                if (num >= 1 && num <= 31)
+                  store.day = num
               }}
             />
           </li>
