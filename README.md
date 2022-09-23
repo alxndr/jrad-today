@@ -30,7 +30,7 @@ npm run preview
 This generates a SSG build in the `./dist/` subdir, commits it to the `gh-pages` branch, and pushes it. GitHub Actions then will publish those files to [GitHub Pages].
 
 ```shell
-npm run publish
+npm run deploy.prod
 ```
 
 
