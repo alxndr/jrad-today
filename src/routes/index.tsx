@@ -45,6 +45,13 @@ export default component$(() => {
   })
   useClientEffect$(async () => {
     store.isJsRunning = true
+    if (window?.location?.hash) {
+      const [hashMonth, hashDay] = window.location.hash.slice(1).split('/').map(Number)
+      if (hashMonth >= 1 && hashMonth <= 12 && hashDay >= 1 && hashDay <= 31) {
+        store.month = hashMonth
+        store.day = hashDay
+      }
+    }
     ppp.parse(showsCsv,
       {header: true, worker: false, complete: (results: {data: any}) => {
         store.concertData = results?.data
@@ -70,7 +77,8 @@ export default component$(() => {
       }))
   })
 
-  const tWord = store.day === new Date().getDate() && store.month - 1 === new Date().getMonth()
+  const isToday = store.day === new Date().getDate() && store.month - 1 === new Date().getMonth()
+  const tWord = isToday
     ? 'Today'
     : 'Then'
 
@@ -105,8 +113,9 @@ export default component$(() => {
               value={store.month}
               onInput$={(_event, {value}: InputType) => {
                 const num = Number(value)
-                if (num >= 1 && num <= 12)
-                  store.month = num
+                if (num < 1 || num > 12) return
+                store.month = num
+                window.location.hash = `${num}/${store.day}`
               }}
             />
           </li>
@@ -121,8 +130,9 @@ export default component$(() => {
               value={store.day}
               onInput$={(_event, {value}: InputType) => {
                 const num = Number(value)
-                if (num >= 1 && num <= 31)
-                  store.day = num
+                if (num < 1 || num > 31) return
+                store.day = num
+                window.location.hash = `${store.month}/${num}`
               }}
             />
           </li>
