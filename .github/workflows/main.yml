@@ -1,0 +1,38 @@
+name: CI
+on: [push]
+jobs:
+
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: install
+        run: npm ci
+      - name: cache
+        uses: actions/cache@v3
+        with:
+          key: npm-${{hashfiles('package-lock.json')}}
+          path: ~/.npm
+
+  lint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: install
+        run: npm ci
+      - name: lint
+        run: npm run lint
+
+  test-unit:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: install
+        run: npm ci
+      - name: test
+        run: npm test
