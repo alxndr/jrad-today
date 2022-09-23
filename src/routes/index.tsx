@@ -83,7 +83,7 @@ export default component$(() => {
       {store.concertsOnDate
         ? store.concertsOnDate?.length
           ? store.concertsOnDate.map?.((concert: any) =>
-              <ConcertInfo data={mutable(concert)} today={today} />
+              <ConcertInfo data={mutable(concert)} today={mutable(today)} />
             )
           : <>
               <hr />
