@@ -12,7 +12,7 @@
     "build.static": "vite build --ssr src/entry.static.tsx",
     "build.types": "tsc --incremental --noEmit",
     "data": "download https://raw.githubusercontent.com/alxndr/almost-dead-net/main/src/data/csv/shows.csv > src/data/shows.csv && download https://raw.githubusercontent.com/alxndr/almost-dead-net/main/src/data/csv/recordings.csv > src/data/recordings.csv",
-    "deploy.prod": "export TMPDIR=/private/tmp/dist-$TIMESTAMP && npm run build.static && npm run ssg && cp -r dist/* $TMPDIR/ && git co gh-pages && git pull && rm -rf ./* && cp -r $TMPDIR . && git add . && git ci -m Deploy\\ $TIMESTAMP && git push && git co main && echo not yet creating the tag deploy-$TIMESTAMP",
+    "deploy.prod": "export TMPDIR=/private/tmp/dist-$TIMESTAMP && npm run build.static && npm run ssg && cp -r dist/* $TMPDIR/ && git co gh-pages && git pull && rm -rf ./* && cp -r $TMPDIR/* . && git add . && git ci -m Deploy\\ $TIMESTAMP && git push && git co main && echo not yet creating the tag deploy-$TIMESTAMP",
     "deploy.prod.gh-pages": "",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
