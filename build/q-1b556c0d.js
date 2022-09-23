@@ -1,2 +1,0 @@
-import{c as t,u as r,_ as o,X as e}from"./q-b6731ed5.js";const n=()=>(t(r(()=>o(()=>Promise.resolve().then(()=>i),void 0),"s_6F5YqPRJUdg")),e("header",{children:e("tt",{children:"#TIJRADH"})})),s=`header{display:flex;background:#222222ee;align-items:center;justify-content:center}header tt{font-size:2em;color:#696969;line-height:1.5em}
-`,_=s,i=Object.freeze(Object.defineProperty({__proto__:null,s_gSIRXOSvTtA:n,s_6F5YqPRJUdg:_},Symbol.toStringTag,{value:"Module"}));export{_ as s_6F5YqPRJUdg,n as s_gSIRXOSvTtA};
