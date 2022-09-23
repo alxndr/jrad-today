@@ -46,7 +46,7 @@ export default component$(() => {
   useClientEffect$(async () => {
     store.isJsRunning = true
     if (window?.location?.hash) {
-      const [hashMonth, hashDay] = window.location.hash.slice(1).split('/').map(Number)
+      const [hashMonth, hashDay] = window.location.hash.slice(1).split('-').map(Number)
       if (hashMonth >= 1 && hashMonth <= 12 && hashDay >= 1 && hashDay <= 31) {
         store.month = hashMonth
         store.day = hashDay
@@ -115,7 +115,7 @@ export default component$(() => {
                 const num = Number(value)
                 if (num < 1 || num > 12) return
                 store.month = num
-                window.location.hash = `${num}/${store.day}`
+                window.location.hash = `${num}-${store.day}`
               }}
             />
           </li>
@@ -132,7 +132,7 @@ export default component$(() => {
                 const num = Number(value)
                 if (num < 1 || num > 31) return
                 store.day = num
-                window.location.hash = `${store.month}/${num}`
+                window.location.hash = `${store.month}-${num}`
               }}
             />
           </li>
