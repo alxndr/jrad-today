@@ -2,7 +2,7 @@
   "name": "jrad-today",
   "description": "Code which powers the JRAD fan portal https://JRAD.today",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.13"
   },
   "private": true,
   "scripts": {
