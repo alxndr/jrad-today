@@ -13,12 +13,8 @@ export function recordingTypeAbbrev(type: string) {
 type ConcertData = {date: string, id: string, recordings: any[], set1: string, tagline: string}
 
 export default component$(({data: {date, id, recordings, set1, tagline}, today}: {data: ConcertData, today: string}) => {
-  const store = useStore({
-    showSetlist: false,
-  })
   useStylesScoped$(styles);
-  const showUrl = `https://almost-dead.net/show/${id}`
-  const setlistUrl = `https://almost-dead.net/show/embed/${id}`
+
   if (today === date)
     return <div class="component-concertInfo component-concertInfo-today">
       <h2>There’s a show today!!!
@@ -35,9 +31,12 @@ export default component$(({data: {date, id, recordings, set1, tagline}, today}:
       <p>Coming up!</p>
     </div>
 
+  const store = useStore({
+    viewSetlist: false,
+  })
   return <div class="component-concertInfo">
     <h2>
-      <a href={showUrl} target="_blank">
+      <a href={`https://almost-dead.net/show/${id}`} target="_blank">
         {Number(date.slice(-2)) + 2000}:
         {tagline.slice(tagline.indexOf('@') + 1)}
       </a>
@@ -45,9 +44,9 @@ export default component$(({data: {date, id, recordings, set1, tagline}, today}:
     {recordings?.length && <ul class="component-concertInfo--recordings">{recordings.map?.((recording: {type: string, url: string}) =>
       <li><a href={recording.url} target="_blank">{recordingTypeAbbrev(recording.type)}</a></li>
     )}</ul> || false}
-    <button onClick$={() => store.showSetlist = !store.showSetlist}>{store.showSetlist ? 'hide' : 'show'} setlist</button>
-    {store.showSetlist
-      ? <iframe src={setlistUrl}></iframe>
+    <button onClick$={() => store.viewSetlist = !store.viewSetlist}>{store.viewSetlist ? 'hide' : 'show'} setlist</button>
+    {store.viewSetlist
+      ? <iframe src={`https://almost-dead.net/show/embed/${id}`}></iframe>
       : false
     }
   </div>
