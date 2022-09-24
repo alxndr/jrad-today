@@ -3,7 +3,7 @@
 This is the code behind the [Joe Russo's Almost Dead][JRAD] fan site [JRAD.today].
 
 It is powered by [Qwik] and [GitHub Pages].
-
+It uses data from [Almost-Dead.net].
 
 ## Development
 
@@ -34,6 +34,7 @@ npm run deploy.prod
 ```
 
 
+[Almost-Dead.net]: https://almost-dead.net
 [GitHub Pages]: https://pages.github.com
 [JRAD]: http://www.joerussosalmostdead.com
 [JRAD.today]: http://jrad.today
