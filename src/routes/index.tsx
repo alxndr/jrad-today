@@ -38,6 +38,11 @@ export function getYear() {
   return new Date().getFullYear()
 }
 
+export function createYearAgnosticDate(month, day) {
+  // use 2000 as it was a leap year
+  return new Date(`2000-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}T00:01`)
+}
+
 export default component$(() => {
   useStylesScoped$(styles);
   const year = getYear()
@@ -113,9 +118,9 @@ export default component$(() => {
             </>
         : <p>Loading...</p>
       }
-      {store.isJsRunning && <p>
-        Try another day?
-        <ul class="component-datepicker">
+      {store.isJsRunning && <p class="component-datepicker">
+        <span>Try another day?</span>
+        <ul>
           <li class="component-datepicker--month">
             <input
               name="month"
@@ -126,10 +131,12 @@ export default component$(() => {
               max="12"
               value={store.month}
               onInput$={(_event, {value}: InputType) => {
-                const num = Number(value)
-                if (num < 1 || num > 12) return
-                store.month = num
-                window.location.hash = `${num}-${store.day}`
+                const monthInput = Number(value)
+                const date = createYearAgnosticDate(monthInput, store.day)
+                if (date.getDate?.()) {
+                  window.location.hash = `${monthInput}-${store.day}`
+                  store.month = monthInput
+                }
               }}
             />
           </li>
@@ -143,18 +150,42 @@ export default component$(() => {
               max="31"
               value={store.day}
               onInput$={(_event, {value}: InputType) => {
-                const num = Number(value)
-                if (num < 1 || num > 31) return
-                store.day = num
-                window.location.hash = `${store.month}-${num}`
+                const dayInput = Number(value)
+                const date = createYearAgnosticDate(store.month, dayInput)
+                if (date.getDate?.()) {
+                  window.location.hash = `${store.month}-${dayInput}`
+                  store.day = dayInput
+                }
               }}
             />
           </li>
         </ul>
+        <button class="component-datepicker--day-prev" onClick$={() => {
+          const {month, day} = decrementDate({month: store.month, day: store.day})
+          store.month = month
+          store.day = day
+        }}>day before</button>
+        <button class="component-datepicker--day-next" onClick$={() => {
+          const {month, day} = incrementDate({month: store.month, day: store.day})
+          store.month = month
+          store.day = day
+        }}>day after</button>
       </p>}
     </div>
   );
 });
+
+export function incrementDate({month, day}) {
+  const date = createYearAgnosticDate(month, day)
+  date.setDate(date.getDate() + 1)
+  return {month: date.getMonth() + 1, day: date.getDate()}
+}
+
+export function decrementDate({month, day}) {
+  const date = createYearAgnosticDate(month, day)
+  date.setDate(date.getDate() - 1)
+  return {month: date.getMonth() + 1, day: date.getDate()}
+}
 
 export const head: DocumentHead = {
   title: 'Today in JRAD History — #TIJRADH',

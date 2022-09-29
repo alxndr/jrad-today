@@ -15,12 +15,22 @@ h1 a {
 }
 
 .component-datepicker {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.component-datepicker span {
+}
+.component-datepicker ul {
   margin: 0;
   padding: 0;
   list-style: none;
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
+  break-after: always;
 }
 .component-datepicker input {
   width: 2.5em;
@@ -36,4 +46,8 @@ h1 a {
   content: '/';
   font-size: 1.2em;
   line-height: 2em;
+}
+.component-datepicker--day-prev {
+}
+.component-datepicker--day-next {
 }
