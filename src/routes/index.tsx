@@ -28,23 +28,37 @@ export function monthNumToWord(monthNum: number) {
 
 type InputType = {value: string} | any
 
+export function getDay() {
+  return new Date().getDate()
+}
+export function getMonth() {
+  return new Date().getMonth() + 1 // don't forget the plus-one
+}
+export function getYear() {
+  return new Date().getFullYear()
+}
+
 export default component$(() => {
   useStylesScoped$(styles);
-  const nowDateObj = new Date();
-  const year = nowDateObj.getFullYear()
-  const month = nowDateObj.getMonth() + 1 // don't forget the plus-one
-  const day = nowDateObj.getDate()
+  const year = getYear()
+  const month = getMonth()
+  const day = getDay()
   const today = `${month}/${day}/${year}`
   const store = useStore<any>({
     concertData: null,
     concertsOnDate: null,
-    day: nowDateObj.getDate(),
+    day,
     isJsRunning: false,
-    month: nowDateObj.getMonth() + 1,
+    month,
     recordingsData: null,
   })
   useClientEffect$(async () => {
-    store.isJsRunning = true
+    if (!store.isJsRunning) {
+      store.isJsRunning = true
+      // first time running in the client... double-check the date
+      store.day = getDay()
+      store.month = getMonth()
+    }
     if (window?.location?.hash) {
       const [hashMonth, hashDay] = window.location.hash.slice(1).split('-').map(Number)
       if (hashMonth >= 1 && hashMonth <= 12 && hashDay >= 1 && hashDay <= 31) {
@@ -77,7 +91,7 @@ export default component$(() => {
       }))
   })
 
-  const isToday = store.day === new Date().getDate() && store.month - 1 === new Date().getMonth()
+  const isToday = store.day === getDay() && store.month === getMonth()
   const tWord = isToday
     ? 'Today'
     : 'Then'
