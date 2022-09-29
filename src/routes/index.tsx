@@ -164,11 +164,13 @@ export default component$(() => {
           const {month, day} = decrementDate({month: store.month, day: store.day})
           store.month = month
           store.day = day
+          window.location.hash = `${store.month}-${store.day}`
         }}>day before</button>
         <button class="component-datepicker--day-next" onClick$={() => {
           const {month, day} = incrementDate({month: store.month, day: store.day})
           store.month = month
           store.day = day
+          window.location.hash = `${store.month}-${store.day}`
         }}>day after</button>
       </p>}
     </div>
