@@ -1,5 +1,15 @@
 {
   "symbols": {
+    "s_6Fd8AjL5Bco": {
+      "origin": "routes/index.tsx",
+      "displayName": "routes_component_div_p_button_onClick",
+      "canonicalFilename": "s_6fd8ajl5bco",
+      "hash": "6Fd8AjL5Bco",
+      "ctxKind": "event",
+      "ctxName": "onClick$",
+      "captures": true,
+      "parent": "s_WehTHV2Vp3k"
+    },
     "s_hA9UPaY8sNQ": {
       "origin": "../node_modules/@builder.io/qwik-city/index.qwik.mjs",
       "displayName": "Link_component_a_onClick",
@@ -9,6 +19,16 @@
       "ctxName": "onClick$",
       "captures": true,
       "parent": "s_mYsiJcA4IBc"
+    },
+    "s_tY5igJzCM5Q": {
+      "origin": "routes/index.tsx",
+      "displayName": "routes_component_div_p_button_onClick_1",
+      "canonicalFilename": "s_ty5igjzcm5q",
+      "hash": "tY5igJzCM5Q",
+      "ctxKind": "event",
+      "ctxName": "onClick$",
+      "captures": true,
+      "parent": "s_WehTHV2Vp3k"
     },
     "s_udDrW7Y0ztw": {
       "origin": "routes/concertInfo.tsx",
@@ -212,27 +232,29 @@
     }
   },
   "mapping": {
-    "s_hA9UPaY8sNQ": "q-8eba7f1f.js",
-    "s_udDrW7Y0ztw": "q-6ace407e.js",
-    "s_skxgNVWVOT8": "q-8eba7f1f.js",
-    "s_asLbBTFH6kA": "q-eb080c96.js",
-    "s_g5vxWnYSDFs": "q-eb080c96.js",
-    "s_uVE5iM9H73c": "q-8eba7f1f.js",
-    "s_AaAlzKH0KlQ": "q-f9f4cfdc.js",
-    "s_tEQuFot8caw": "q-eb080c96.js",
-    "s_WjXpUuAf3ck": "q-eb080c96.js",
-    "s_0Ky05GxNoW8": "q-a2f376dc.js",
-    "s_LJXogu0s4bw": "q-f2f66ba3.js",
-    "s_WehTHV2Vp3k": "q-eb080c96.js",
-    "s_gSIRXOSvTtA": "q-902173d7.js",
-    "s_mYsiJcA4IBc": "q-8eba7f1f.js",
-    "s_nd8yk3KO22c": "q-f75baf68.js",
-    "s_vsKr0ZqSHfU": "q-e85de1c3.js",
-    "s_z1nvHyEppoI": "q-f9f4cfdc.js",
-    "s_zr0sXMkduGs": "q-6ace407e.js",
-    "s_08Vu5jppeJk": "q-eb080c96.js",
-    "s_6F5YqPRJUdg": "q-902173d7.js",
-    "s_YJ6mtqrUqEk": "q-6ace407e.js"
+    "s_6Fd8AjL5Bco": "q-1d7a05b3.js",
+    "s_hA9UPaY8sNQ": "q-36c048ed.js",
+    "s_tY5igJzCM5Q": "q-1d7a05b3.js",
+    "s_udDrW7Y0ztw": "q-bc39e0da.js",
+    "s_skxgNVWVOT8": "q-36c048ed.js",
+    "s_asLbBTFH6kA": "q-1d7a05b3.js",
+    "s_g5vxWnYSDFs": "q-1d7a05b3.js",
+    "s_uVE5iM9H73c": "q-36c048ed.js",
+    "s_AaAlzKH0KlQ": "q-767fd296.js",
+    "s_tEQuFot8caw": "q-1d7a05b3.js",
+    "s_WjXpUuAf3ck": "q-1d7a05b3.js",
+    "s_0Ky05GxNoW8": "q-4f44cd36.js",
+    "s_LJXogu0s4bw": "q-9a2a0c32.js",
+    "s_WehTHV2Vp3k": "q-1d7a05b3.js",
+    "s_gSIRXOSvTtA": "q-5e7132ce.js",
+    "s_mYsiJcA4IBc": "q-36c048ed.js",
+    "s_nd8yk3KO22c": "q-ca73d4ee.js",
+    "s_vsKr0ZqSHfU": "q-f65f0462.js",
+    "s_z1nvHyEppoI": "q-767fd296.js",
+    "s_zr0sXMkduGs": "q-bc39e0da.js",
+    "s_08Vu5jppeJk": "q-1d7a05b3.js",
+    "s_6F5YqPRJUdg": "q-5e7132ce.js",
+    "s_YJ6mtqrUqEk": "q-bc39e0da.js"
   },
   "bundles": {
     "q-143c7194.js": {
@@ -242,68 +264,54 @@
         "src/routes/service-worker.js"
       ]
     },
-    "q-367bf209.js": {
-      "size": 773,
+    "q-1d7a05b3.js": {
+      "size": 112841,
       "imports": [
-        "q-53894eda.js"
+        "q-bb1afebf.js",
+        "q-fad75c2f.js"
       ],
       "dynamicImports": [
-        "q-eb080c96.js"
+        "q-bc39e0da.js"
       ],
       "origins": [
-        "src/routes/index.js"
-      ]
-    },
-    "q-53894eda.js": {
-      "size": 36370,
-      "dynamicImports": [
-        "q-a2f376dc.js"
-      ],
-      "origins": [
-        "\u0000vite/preload-helper",
-        "node_modules/@builder.io/qwik/core.min.mjs",
-        "src/global.css",
-        "src/root.js"
-      ]
-    },
-    "q-56cbdecd.js": {
-      "size": 346,
-      "imports": [
-        "q-53894eda.js"
-      ],
-      "dynamicImports": [
-        "q-367bf209.js",
-        "q-76e1fa29.js",
-        "q-9152f888.js"
-      ],
-      "origins": [
-        "@qwik-city-plan"
-      ]
-    },
-    "q-6ace407e.js": {
-      "size": 2381,
-      "imports": [
-        "q-367bf209.js",
-        "q-53894eda.js",
-        "q-eb080c96.js"
-      ],
-      "origins": [
-        "src/entry_concertInfo.js",
-        "src/routes/concertInfo.css?used&inline",
-        "src/s_uddrw7y0ztw.js",
-        "src/s_yj6mtqruqek.js",
-        "src/s_zr0sxmkdugs.js"
+        "\u0000/Users/alxndr/workspace/jrad-today/node_modules/papaparse/papaparse.min.js?commonjs-module",
+        "\u0000commonjsHelpers.js",
+        "node_modules/papaparse/papaparse.min.js",
+        "src/data/recordings.csv?raw",
+        "src/data/shows.csv?raw",
+        "src/entry_routes.js",
+        "src/routes/concertInfo.js",
+        "src/routes/home.css?used&inline",
+        "src/s_08vu5jppejk.js",
+        "src/s_6fd8ajl5bco.js",
+        "src/s_aslbbtfh6ka.js",
+        "src/s_g5vxwnysdfs.js",
+        "src/s_tequfot8caw.js",
+        "src/s_ty5igjzcm5q.js",
+        "src/s_wehthv2vp3k.js",
+        "src/s_wjxpuuaf3ck.js"
       ],
       "symbols": [
-        "s_udDrW7Y0ztw",
-        "s_YJ6mtqrUqEk",
-        "s_zr0sXMkduGs"
+        "s_08Vu5jppeJk",
+        "s_6Fd8AjL5Bco",
+        "s_asLbBTFH6kA",
+        "s_g5vxWnYSDFs",
+        "s_tEQuFot8caw",
+        "s_tY5igJzCM5Q",
+        "s_WehTHV2Vp3k",
+        "s_WjXpUuAf3ck"
       ]
     },
-    "q-76e1fa29.js": {
+    "q-215ef59a.js": {
+      "size": 58,
+      "imports": [
+        "q-bb1afebf.js"
+      ]
+    },
+    "q-31cafdb4.js": {
       "size": 128,
       "imports": [
-        "q-53894eda.js"
+        "q-bb1afebf.js"
       ],
       "dynamicImports": [
         "q-143c7194.js"
@@ -312,11 +320,11 @@
         "@qwik-city-entries"
       ]
     },
-    "q-8eba7f1f.js": {
+    "q-36c048ed.js": {
       "size": 886,
       "imports": [
-        "q-53894eda.js",
-        "q-a2f376dc.js"
+        "q-4f44cd36.js",
+        "q-bb1afebf.js"
       ],
       "origins": [
         "src/entry_Link.js",
@@ -332,10 +340,32 @@
         "s_uVE5iM9H73c"
       ]
     },
-    "q-902173d7.js": {
+    "q-4f44cd36.js": {
+      "size": 4421,
+      "imports": [
+        "q-bb1afebf.js"
+      ],
+      "dynamicImports": [
+        "q-36c048ed.js",
+        "q-767fd296.js",
+        "q-ca73d4ee.js",
+        "q-def3ae48.js",
+        "q-f65f0462.js"
+      ],
+      "origins": [
+        "node_modules/@builder.io/qwik-city/index.qwik.mjs",
+        "src/components/router-head/router-head.js",
+        "src/entry_root.js",
+        "src/s_0ky05gxnow8.js"
+      ],
+      "symbols": [
+        "s_0Ky05GxNoW8"
+      ]
+    },
+    "q-5e7132ce.js": {
       "size": 607,
       "imports": [
-        "q-53894eda.js"
+        "q-bb1afebf.js"
       ],
       "origins": [
         "src/components/header/header.css?used&inline",
@@ -348,133 +378,14 @@
         "s_gSIRXOSvTtA"
       ]
     },
-    "q-9152f888.js": {
-      "size": 158,
-      "imports": [
-        "q-53894eda.js"
-      ],
-      "dynamicImports": [
-        "q-f2f66ba3.js"
-      ],
-      "origins": [
-        "src/routes/layout.js"
-      ]
-    },
-    "q-a2f376dc.js": {
-      "size": 4421,
-      "imports": [
-        "q-53894eda.js"
-      ],
-      "dynamicImports": [
-        "q-56cbdecd.js",
-        "q-8eba7f1f.js",
-        "q-e85de1c3.js",
-        "q-f75baf68.js",
-        "q-f9f4cfdc.js"
-      ],
-      "origins": [
-        "node_modules/@builder.io/qwik-city/index.qwik.mjs",
-        "src/components/router-head/router-head.js",
-        "src/entry_root.js",
-        "src/s_0ky05gxnow8.js"
-      ],
-      "symbols": [
-        "s_0Ky05GxNoW8"
-      ]
-    },
-    "q-e85de1c3.js": {
-      "size": 515,
-      "imports": [
-        "q-53894eda.js",
-        "q-a2f376dc.js"
-      ],
-      "origins": [
-        "src/entry_RouterHead.js",
-        "src/s_vskr0zqshfu.js"
-      ],
-      "symbols": [
-        "s_vsKr0ZqSHfU"
-      ]
-    },
-    "q-eb080c96.js": {
-      "size": 111985,
-      "imports": [
-        "q-367bf209.js",
-        "q-53894eda.js"
-      ],
-      "dynamicImports": [
-        "q-6ace407e.js"
-      ],
-      "origins": [
-        "\u0000/Users/alxndr/workspace/jrad-today/node_modules/papaparse/papaparse.min.js?commonjs-module",
-        "\u0000commonjsHelpers.js",
-        "node_modules/papaparse/papaparse.min.js",
-        "src/data/recordings.csv?raw",
-        "src/data/shows.csv?raw",
-        "src/entry_routes.js",
-        "src/routes/concertInfo.js",
-        "src/routes/home.css?used&inline",
-        "src/s_08vu5jppejk.js",
-        "src/s_aslbbtfh6ka.js",
-        "src/s_g5vxwnysdfs.js",
-        "src/s_tequfot8caw.js",
-        "src/s_wehthv2vp3k.js",
-        "src/s_wjxpuuaf3ck.js"
-      ],
-      "symbols": [
-        "s_08Vu5jppeJk",
-        "s_asLbBTFH6kA",
-        "s_g5vxWnYSDFs",
-        "s_tEQuFot8caw",
-        "s_WehTHV2Vp3k",
-        "s_WjXpUuAf3ck"
-      ]
-    },
-    "q-ed386ab7.js": {
-      "size": 58,
-      "imports": [
-        "q-53894eda.js"
-      ]
-    },
-    "q-f2f66ba3.js": {
-      "size": 756,
-      "imports": [
-        "q-53894eda.js"
-      ],
-      "dynamicImports": [
-        "q-902173d7.js"
-      ],
-      "origins": [
-        "src/components/header/header.js",
-        "src/entry_layout.js",
-        "src/s_ljxogu0s4bw.js"
-      ],
-      "symbols": [
-        "s_LJXogu0s4bw"
-      ]
-    },
-    "q-f75baf68.js": {
-      "size": 269,
-      "imports": [
-        "q-53894eda.js",
-        "q-a2f376dc.js"
-      ],
-      "origins": [
-        "src/entry_RouterOutlet.js",
-        "src/s_nd8yk3ko22c.js"
-      ],
-      "symbols": [
-        "s_nd8yk3KO22c"
-      ]
-    },
-    "q-f9f4cfdc.js": {
+    "q-767fd296.js": {
       "size": 1489,
       "imports": [
-        "q-53894eda.js",
-        "q-a2f376dc.js"
+        "q-4f44cd36.js",
+        "q-bb1afebf.js"
       ],
       "dynamicImports": [
-        "q-56cbdecd.js"
+        "q-def3ae48.js"
       ],
       "origins": [
         "@builder.io/qwik/build",
@@ -485,6 +396,121 @@
       "symbols": [
         "s_AaAlzKH0KlQ",
         "s_z1nvHyEppoI"
+      ]
+    },
+    "q-93e9244c.js": {
+      "size": 158,
+      "imports": [
+        "q-bb1afebf.js"
+      ],
+      "dynamicImports": [
+        "q-9a2a0c32.js"
+      ],
+      "origins": [
+        "src/routes/layout.js"
+      ]
+    },
+    "q-9a2a0c32.js": {
+      "size": 756,
+      "imports": [
+        "q-bb1afebf.js"
+      ],
+      "dynamicImports": [
+        "q-5e7132ce.js"
+      ],
+      "origins": [
+        "src/components/header/header.js",
+        "src/entry_layout.js",
+        "src/s_ljxogu0s4bw.js"
+      ],
+      "symbols": [
+        "s_LJXogu0s4bw"
+      ]
+    },
+    "q-bb1afebf.js": {
+      "size": 36370,
+      "dynamicImports": [
+        "q-4f44cd36.js"
+      ],
+      "origins": [
+        "\u0000vite/preload-helper",
+        "node_modules/@builder.io/qwik/core.min.mjs",
+        "src/global.css",
+        "src/root.js"
+      ]
+    },
+    "q-bc39e0da.js": {
+      "size": 2381,
+      "imports": [
+        "q-1d7a05b3.js",
+        "q-bb1afebf.js",
+        "q-fad75c2f.js"
+      ],
+      "origins": [
+        "src/entry_concertInfo.js",
+        "src/routes/concertInfo.css?used&inline",
+        "src/s_uddrw7y0ztw.js",
+        "src/s_yj6mtqruqek.js",
+        "src/s_zr0sxmkdugs.js"
+      ],
+      "symbols": [
+        "s_udDrW7Y0ztw",
+        "s_YJ6mtqrUqEk",
+        "s_zr0sXMkduGs"
+      ]
+    },
+    "q-ca73d4ee.js": {
+      "size": 269,
+      "imports": [
+        "q-4f44cd36.js",
+        "q-bb1afebf.js"
+      ],
+      "origins": [
+        "src/entry_RouterOutlet.js",
+        "src/s_nd8yk3ko22c.js"
+      ],
+      "symbols": [
+        "s_nd8yk3KO22c"
+      ]
+    },
+    "q-def3ae48.js": {
+      "size": 346,
+      "imports": [
+        "q-bb1afebf.js"
+      ],
+      "dynamicImports": [
+        "q-31cafdb4.js",
+        "q-93e9244c.js",
+        "q-fad75c2f.js"
+      ],
+      "origins": [
+        "@qwik-city-plan"
+      ]
+    },
+    "q-f65f0462.js": {
+      "size": 515,
+      "imports": [
+        "q-4f44cd36.js",
+        "q-bb1afebf.js"
+      ],
+      "origins": [
+        "src/entry_RouterHead.js",
+        "src/s_vskr0zqshfu.js"
+      ],
+      "symbols": [
+        "s_vsKr0ZqSHfU"
+      ]
+    },
+    "q-fad75c2f.js": {
+      "size": 1150,
+      "imports": [
+        "q-bb1afebf.js"
+      ],
+      "dynamicImports": [
+        "q-1d7a05b3.js"
+      ],
+      "origins": [
+        "src/routes/index.js"
       ]
     }
   },
