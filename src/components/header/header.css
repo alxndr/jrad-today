@@ -5,6 +5,10 @@ header {
   justify-content: center;
 }
 
+header a {
+  text-decoration: none;
+}
+
 header tt {
   font-size: 2em;
   color: dimgray;
