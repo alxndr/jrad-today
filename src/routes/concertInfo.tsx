@@ -22,7 +22,7 @@ export default component$(({data: {date, id, recordings, set1, tagline}, today}:
       </h2>
     </div>
 
-  if (!set1)
+  if (Date.parse(date) > Date.now())
     return <div class="component-concertInfo component-concertInfo-future">
       <h2>
         {Number(date.slice(-2)) + 2000}:
@@ -44,7 +44,7 @@ export default component$(({data: {date, id, recordings, set1, tagline}, today}:
     {recordings?.length && <ul class="component-concertInfo--recordings">{recordings.map?.((recording: {type: string, url: string}) =>
       <li><a href={recording.url} target="_blank">{recordingTypeAbbrev(recording.type)}</a></li>
     )}</ul> || false}
-    <button onClick$={() => store.viewSetlist = !store.viewSetlist}>{store.viewSetlist ? 'hide' : 'show'} setlist</button>
+    {set1 && <button onClick$={() => store.viewSetlist = !store.viewSetlist}>{store.viewSetlist ? 'hide' : 'show'} setlist</button>}
     {store.viewSetlist
       ? <iframe src={`https://almost-dead.net/show/embed/${id}`}></iframe>
       : false
