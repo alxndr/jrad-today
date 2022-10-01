@@ -192,8 +192,12 @@ export function decrementDate({month, day}) {
 export const head: DocumentHead = {
   title: 'Today in JRAD History — #TIJRADH',
   meta: [
+    {name: 'title',        content: 'Today in JRAD History'},
     {property: 'og:title', content: 'Today in JRAD History'},
+    {name: 'description',        content: 'Find out what Joe Russo\'s Almost Dead has played on each day throughout the calendar. #TIJRADH'},
+    {property: 'og:description', content: 'Find out what Joe Russo\'s Almost Dead has played on each day throughout the calendar. #TIJRADH'},
     {property: 'og:image', content: 'https://jrad.today/favicon.png'},
+    {property: 'og:type', content: 'website'},
   ],
   links: [],
 };
