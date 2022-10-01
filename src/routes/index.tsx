@@ -191,4 +191,9 @@ export function decrementDate({month, day}) {
 
 export const head: DocumentHead = {
   title: 'Today in JRAD History — #TIJRADH',
+  meta: [
+    {property: 'og:title', content: 'Today in JRAD History'},
+    {property: 'og:image', content: 'https://jrad.today/favicon.png'},
+  ],
+  links: [],
 };
