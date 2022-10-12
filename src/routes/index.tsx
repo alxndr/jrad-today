@@ -7,6 +7,7 @@ import ConcertInfo from './concertInfo'
 
 import showsCsv from '../data/shows.csv?raw'
 import recordingsCsv from '../data/recordings.csv?raw'
+import customDatesCsv from '../data/custom-dates.csv?raw'
 
 export function monthNumToWord(monthNum: number) {
   switch (monthNum) {
@@ -38,7 +39,7 @@ export function getYear() {
   return new Date().getFullYear()
 }
 
-export function createYearAgnosticDate(month, day) {
+export function createYearAgnosticDate(month: number, day: number) {
   // use 2000 as it was a leap year
   return new Date(`2000-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}T00:01`)
 }
@@ -53,10 +54,15 @@ export default component$(() => {
     concertData: null,
     concertsOnDate: null,
     day,
+    eventsOnDate: [],
     isJsRunning: false,
     month,
     recordingsData: null,
   })
+  ppp.parse(customDatesCsv,
+    {header: true, worker: false, complete: (results: {data: any}) => {
+      store.customDates = results.data
+    }})
   useClientEffect$(async () => {
     if (!store.isJsRunning) {
       store.isJsRunning = true
@@ -94,6 +100,8 @@ export default component$(() => {
         ...concert,
         recordings: recordingsData?.filter?.((recording: {show: string}) => recording.show === concert.id)
       }))
+    store.eventsOnDate = store.customDates
+      ?.filter?.((eventObj: {date: string, event: string}) => eventObj?.date?.startsWith(dateWithoutYear))
   })
 
   const isToday = store.day === getDay() && store.month === getMonth()
@@ -107,6 +115,7 @@ export default component$(() => {
         {tWord} {' '}
         in <a href="http://www.joerussosalmostdead.com" target="_blank">JRAD</a> History: {monthNumToWord(store.month)} {store.day}
       </h1>
+      {store.eventsOnDate?.map?.((eventObj: any) => <p style={{fontStyle: 'italic'}}>{eventObj.event}</p>)}
       {store.concertsOnDate
         ? store.concertsOnDate?.length
           ? store.concertsOnDate.map?.((concert: any) =>
