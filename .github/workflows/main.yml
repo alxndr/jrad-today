@@ -45,5 +45,9 @@ jobs:
         uses: actions/checkout@v2
       - name: install
         run: npm ci
-      - name: test
-        run: npm run test.fxn
+      - name: run Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run start.ci
+          wait-on: http://localhost:8080
+          command: npm run test.fxn

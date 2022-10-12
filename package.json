@@ -22,6 +22,7 @@
     "qwik": "qwik",
     "ssg": "node server/entry.static",
     "start": "vite --open --mode ssr",
+    "start.ci": "vite preview --strictPort --port ${PORT:-8080}",
     "test.fxn": "cypress run",
     "test.unit": "node --loader=ts-node/esm bin/test.ts",
     "timestamp": "date '+%FT%T-%Z'"
