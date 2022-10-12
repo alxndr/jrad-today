@@ -35,4 +35,15 @@ jobs:
       - name: install
         run: npm ci
       - name: test
-        run: npm test
+        run: npm run test.unit
+
+  test-functional:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: install
+        run: npm ci
+      - name: test
+        run: npm run test.fxn

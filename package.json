@@ -22,7 +22,8 @@
     "qwik": "qwik",
     "ssg": "node server/entry.static",
     "start": "vite --open --mode ssr",
-    "test": "node --loader=ts-node/esm bin/test.ts",
+    "test.fxn": "cypress run",
+    "test.unit": "node --loader=ts-node/esm bin/test.ts",
     "timestamp": "date '+%FT%T-%Z'"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "@types/papaparse": "^5.3.5",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
+    "cypress": "^10.10.0",
     "download-cli": "^1.1.1",
     "eslint": "8.23.1",
     "eslint-plugin-qwik": "0.9.0",
