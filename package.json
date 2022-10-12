@@ -18,6 +18,7 @@
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
+    "prestart.ci": "npm run build.preview",
     "preview": "qwik build preview && vite preview --open",
     "qwik": "qwik",
     "ssg": "node server/entry.static",

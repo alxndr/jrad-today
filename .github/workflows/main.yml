@@ -49,5 +49,5 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: npm run start.ci
-          wait-on: http://localhost:8080
-          command: npm run test.fxn
+          wait-on: http://127.0.0.1:8080/
+          command: CYPRESS_BASE_URL=http://127.0.0.1:8080/ npm run test.fxn
