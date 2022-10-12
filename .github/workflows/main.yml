@@ -48,6 +48,6 @@ jobs:
       - name: run Cypress
         uses: cypress-io/github-action@v2
         with:
-          start: npm run start.ci
-          wait-on: http://127.0.0.1:8080/
-          command: CYPRESS_BASE_URL=http://127.0.0.1:8080/ npm run test.fxn
+          start: npm run start.ci -- --host
+          wait-on: http://10.1.0.74:8080/
+          command: CYPRESS_BASE_URL=http://10.1.0.74:8080/ npm run test.fxn
