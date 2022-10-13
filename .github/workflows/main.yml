@@ -46,8 +46,13 @@ jobs:
       - name: install
         run: npm ci
       - name: run Cypress
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
-          start: npm run start.ci -- --port 8080
-          wait-on: http://localhost:8080/
-          command: CYPRESS_BASE_URL=http://localhost:8080/ npm run test.fxn
+          command: npm run test.fxn
+          start: npm run start.ci -- --port 4242
+          wait-on: http://localhost:4242
+          wait-on-timeout: 20
+        env:
+          CYPRESS_BASE_URL: http://localhost:4242/
+          DEBUG: '@cypress/github-action'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
