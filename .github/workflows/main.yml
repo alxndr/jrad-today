@@ -50,9 +50,9 @@ jobs:
         with:
           command: npm run test.fxn
           start: npm run start.ci -- --port 4242
-          wait-on: http://localhost:4242
-          wait-on-timeout: 20
+          wait-on: http://$(hostname):4242
+          wait-on-timeout: 10
         env:
-          CYPRESS_BASE_URL: http://localhost:4242/
+          CYPRESS_BASE_URL: http://$(hostname):4242/
           DEBUG: '@cypress/github-action'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
