@@ -6,7 +6,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig(() => {
   return {
     assetsInclude: ['**/*.csv'],
-    ssr: { target: "node", format: "cjs" },
     plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
   };
 });
