@@ -115,7 +115,16 @@ export default component$(() => {
         {tWord} {' '}
         in <a href="http://www.joerussosalmostdead.com" target="_blank">JRAD</a> History: {monthNumToWord(store.month)} {store.day}
       </h1>
-      {store.eventsOnDate?.map?.((eventObj: any) => <p style={{fontStyle: 'italic'}}>{eventObj.event}</p>)}
+      {store.eventsOnDate?.map?.((eventObj: any) => {
+        const isAnnual = eventObj.date.endsWith('/')
+        const yearPrefix = isAnnual
+          ? false
+          : <span className="year">{Number(eventObj.date.split('/')[2]) + 2000}</span>
+        return <p className="custom">
+          {yearPrefix}
+          {eventObj.event}
+        </p>
+      })}
       {store.concertsOnDate
         ? store.concertsOnDate?.length
           ? store.concertsOnDate.map?.((concert: any) =>

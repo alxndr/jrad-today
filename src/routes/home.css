@@ -14,14 +14,26 @@ h1 a {
   text-decoration: none;
 }
 
+.custom {
+  margin: 0 auto;
+  padding: 0.75em;
+  width: 60%;
+  min-width: 10em;
+  background: #dabbff4e;
+}
+.custom .year {
+  margin-right: 1em;
+}
+.custom .year::after {
+  content: ':';
+}
+
 .component-datepicker {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-}
-.component-datepicker span {
 }
 .component-datepicker ul {
   margin: 0;
@@ -46,8 +58,4 @@ h1 a {
   content: '/';
   font-size: 1.2em;
   line-height: 2em;
-}
-.component-datepicker--day-prev {
-}
-.component-datepicker--day-next {
 }
