@@ -1,4 +1,4 @@
-import { component$, mutable, useClientEffect$, useStylesScoped$, useStore, useWatch$ } from '@builder.io/qwik'
+import { component$, useClientEffect$, useStylesScoped$, useStore, useWatch$ } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
 import ppp from 'papaparse'
 
@@ -97,10 +97,10 @@ export default component$(() => {
     }})
   })
   useWatch$(async ({track}) => {
-    const concertData = track(store, 'concertData')
-    const recordingsData = track(store, 'recordingsData')
-    const day = track(store, 'day')
-    const month = track(store, 'month')
+    const concertData = track(() => store.concertData)
+    const recordingsData = track(() => store.recordingsData)
+    const day = track(() => store.day)
+    const month = track(() => store.month)
     const dateWithoutYear = `${month}/${day}/`
     store.concertsOnDate = concertData
       ?.filter?.((concert: {date: string, set1: string}) => concert?.date?.startsWith(dateWithoutYear))
@@ -137,7 +137,7 @@ export default component$(() => {
       {store.concertsOnDate
         ? store.concertsOnDate?.length
           ? store.concertsOnDate.map?.((concert: any) =>
-              <ConcertInfo data={mutable(concert)} today={mutable(today)} />
+              <ConcertInfo data={concert} today={today} />
             )
           : <>
               <hr />
