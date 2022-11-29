@@ -44,7 +44,7 @@ export function createYearAgnosticDate(month: number, day: number) {
   return new Date(`2000-${month < 10 ? `0${month}` : month}-${day < 10 ? `0${day}` : day}T00:01`)
 }
 
-const REGEX = /^(.*)\[([^\]]+)\]\(([^\)]+)\)(.*)$/g
+const REGEX = /^(.*)\[([^\]]+)\]\(([^)]+)\)(.*)$/g
 const regexReplacer = (_: string, p1: string, p2: string, p3: string, p4: string) => `${p1}<a href="${p3}">${p2}</a>${p4}`
 export function makeLinks(dangerousString: string) {
   if (dangerousString.includes('](')) {
