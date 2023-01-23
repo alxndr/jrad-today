@@ -3,6 +3,7 @@ import Header from '../components/header/header';
 
 export default component$(() => {
   return <>
+    <script data-goatcounter="https://alxndr.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <main>
       <Header />
       <section>
